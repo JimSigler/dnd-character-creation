@@ -1,0 +1,13 @@
+{
+    "env": {
+      "node": true
+    },
+    "extends": "airbnb",
+    "rules": {
+      "keyword-spacing": 0,
+      "no-plusplus": 0,
+      "no-undef": 0,
+      "space-in-parens": 0,
+      "prefer-destructuring": 0
+    }
+}
