@@ -1,4 +1,4 @@
-const Die = require('./adie');
+const Die = require('./aDie');
 
 class DiceRoller{
 

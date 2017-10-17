@@ -1,6 +1,6 @@
 const _ = require('underscore');
 
-class adie {
+class aDie {
   constructor(size) {
     this.size = size;
   }
@@ -13,4 +13,4 @@ class adie {
   }
 }
 
-module.exports = adie;
+module.exports = aDie;

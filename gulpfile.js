@@ -13,7 +13,7 @@ gulp.task('lint', function() {
 
 gulp.task('test', function(){
   process.env.NODE_ENV = 'test';
-  gulp.src('test/*.js')
+  gulp.src('specs/tests/*.js')
       .pipe(run('npm test'))
       .on('error', function(e){
         throw e
