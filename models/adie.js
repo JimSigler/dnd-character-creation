@@ -1,22 +1,16 @@
-"use strict";
-
-var _=require('underscore');
+const _ = require('underscore');
 
 class adie {
-
-  constructor(size){
+  constructor(size) {
     this.size = size;
   }
 
-  roll(){
+  roll() {
     if(this.size > 0){
       return _.random(1, this.size);
     }
-    else {
-      return 0;
-    }
+    return 0;
   }
-
 }
 
 module.exports = adie;

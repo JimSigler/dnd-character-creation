@@ -1,10 +1,8 @@
-"use strict";
-
-var die = require('./adie');
+const Die = require('./adie');
 
 class DiceRoller{
 
-  constructor(count, size){
+  constructor(count, size) {
     this.count = count;
     this.size = size;
     this.rolls = [];
@@ -12,23 +10,23 @@ class DiceRoller{
   }
 
   //
-  rollDice(){
+  rollDice() {
     this.total = 0;
-    if(this.count > 0 && this.size > 0){
-      for(var i=0; i< this.count; i++){
-        var d = new die(this.size);
-        var roll = d.roll();
+    if(this.count > 0 && this.size > 0) {
+      for(let i=0; i< this.count; i++) {
+        const d = new Die(this.size);
+        const roll = d.roll();
         this.rolls.push(roll);
         this.total += roll;
       }
     }
   }
 
-  getTotal(){
+  getTotal() {
     return this.total;
   }
 
-  getRolls(){
+  getRolls() {
     return this.rolls;
   }
 

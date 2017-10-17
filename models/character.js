@@ -1,51 +1,43 @@
-var _=require('underscore');
-var diceRoller = require('./diceRoller');
+const DiceRoller = require('./diceRoller');
 
-var character = (function(){
+const character = ( function(){
 
-  var classes = ["Fighter", "Rogue", "Paladin", "Mage", "Cleric", "Bard"];
+  const classes = ["Fighter", "Rogue", "Paladin", "Mage", "Cleric", "Bard"];
 
-  function getCharacter(){
-    var stats = rollAllStats(6);
-    var classChoice = getCharacterClass(stats);
-    var output = formatOutput(stats, classChoice);
-    return output;
+  function sortLtoS(arrayToSort) {
+    arrayToSort.sort( function(a, b) { return b-a; } );
+    return arrayToSort;
   }
 
-  function rollAllStats(numberOfStats){
-    var stats = [];
-    for(var i=0; i<numberOfStats; i++){
+  function rollForStat(diceSize) {
+    const maxDice = 4;
+    let rolls = [];
+    const roller = new DiceRoller(1, diceSize);
+    for(let i=0; i< maxDice; i++){
+      roller.rollDice();
+      rolls.push(roller.getTotal());
+    }
+    rolls = sortLtoS(rolls);
+    rolls.splice(3, 1);
+    return rolls[0] + rolls[1] + rolls[2];
+  }
+
+  function rollAllStats(numberOfStats) {
+    const stats = [];
+    for(let i=0; i<numberOfStats; i++){
       stats.push(rollForStat(6));
     }
     return stats;
   }
 
-  function rollForStat(diceSize){
-    var maxDice = 4;
-    var rolls = [];
-    var roller = new diceRoller(1, diceSize);
-    for(var i=0; i< maxDice; i++){
-      roller.rollDice();
-      rolls.push(roller.getTotal());
-    }
-    rolls = sortLtoS(rolls);
-    rolls.splice(3,1);
-    return rolls[0] + rolls[1] + rolls[2];
-  }
-
-  function sortLtoS(arrayToSort){
-    arrayToSort.sort(function(a, b) { return b-a});
-    return arrayToSort;
-  }
-
-  function getCharacterClass(rolls){
-    var largest=0;
+  function getCharacterClass(rolls) {
+    let largest=0;
     largest = rolls.indexOf(Math.max.apply(null, rolls));
     return classes[largest];
   }
 
-  function formatOutput(rolls, classChoice){
-    var output = "<table>";
+  function formatOutput(rolls, classChoice) {
+    let output = "<table>";
     output += ` <tr> <td> STR: </td> <td> ${rolls[0]} </td> </tr> `;
     output += ` <tr> <td> DEX: </td> <td> ${rolls[1]} </td> </tr> `;
     output += ` <tr> <td> CON: </td> <td> ${rolls[2]} </td> </tr> `;
@@ -57,10 +49,17 @@ var character = (function(){
     return output;
   }
 
+  function getCharacter() {
+    const stats = rollAllStats(6);
+    const classChoice = getCharacterClass(stats);
+    const output = formatOutput(stats, classChoice);
+    return output;
+  }
+
   return {
-    getCharacter:   getCharacter
+    getCharacter:   getCharacter,
   };
 
-})();
+}());
 
 module.exports = character;
