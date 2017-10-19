@@ -1,4 +1,4 @@
-const DiceRoller = require('./diceRoller');
+const DiceRoller = require('./diceRoller').DiceRoller;
 
 const character = ( function(){
 

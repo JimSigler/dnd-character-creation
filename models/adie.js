@@ -13,4 +13,4 @@ class aDie {
   }
 }
 
-module.exports = aDie;
+exports.aDie = aDie;

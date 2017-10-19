@@ -1,4 +1,4 @@
-const Die = require('./aDie');
+const Die = require('./aDie').aDie;
 
 class DiceRoller{
 
@@ -9,7 +9,7 @@ class DiceRoller{
     this.total = 0;
   }
 
-  //
+  
   rollDice() {
     this.total = 0;
     if(this.count > 0 && this.size > 0) {
@@ -32,4 +32,4 @@ class DiceRoller{
 
 }
 
-module.exports = DiceRoller;
+exports.DiceRoller = DiceRoller;

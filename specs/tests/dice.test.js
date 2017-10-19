@@ -1,4 +1,4 @@
-const Die = require('../../models/aDie');
+const Die = require('../../models/aDie').aDie;
 
 let dieRoll = 0;
 const dieSize = 6;

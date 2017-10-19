@@ -1,4 +1,4 @@
-const Die = require('../../models/diceRoller');
+const Die = require('../../models/diceRoller').DiceRoller;
 
 let dieRoll = 0;
 let numberOfRolls = 0;
