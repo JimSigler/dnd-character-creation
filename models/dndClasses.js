@@ -9,7 +9,7 @@ class DnDClasses{
 
   constructor(){
     this.theClassList = ["Fighter", "Rogue", "Paladin", "Mage", "Cleric", "Bard"];
-    this.test = { 'Fighter':'STR', 'Rogue':'DEX' };
+    this.test = { 'Fighter':'STR', 'Rogue':'DEX', 'Paladin':'CON', 'Mage':'INT', 'Cleric':'WIS', 'Bard':'CHAR' };
   }
 
   classList(){
