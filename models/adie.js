@@ -25,6 +25,7 @@ class aDie {
     else{
       this.size=6;
     }
+    this.face = 0;
   }
 
   // **************
@@ -43,9 +44,17 @@ class aDie {
   // **************
   roll() {
     if(this.size > 0){
-      return _.random(1, this.size);
+      this.face = _.random(1, this.size);
+      return this.face;
     }
     return 0;
+  }
+
+  // ***************
+  // getFace() returns the last number rolled - the showing face of the die.
+  // ***************
+  getFace(){
+    return this.face;
   }
 }
 

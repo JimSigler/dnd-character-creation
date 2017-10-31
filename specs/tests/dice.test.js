@@ -8,8 +8,11 @@ beforeAll(() => {
   dieRoll = theDie.roll();
 });
 
-test(`should have a value between 1 and ${dieSize}`, () => {
+test(`should have a value greater than 1`, () => {
   expect(dieRoll > 0).toBe(true);
+});
+
+test(`should have a value less than ${dieSize}`, () => {
   expect(dieRoll < (dieSize + 1)).toBe(true);
 });
 

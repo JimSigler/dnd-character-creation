@@ -32,22 +32,32 @@ class DiceRoller{
     }
     this.rolls = [];
     this.total = 0;
+    this.allTheDie = [];
+    this.setup();
+  }
+
+  // ***************
+  // this.setup() loads an array of length count with die with the size of this.size.
+  // ***************
+  setup() {
+    for(let i=0; i<this.count; i++){
+      this.allTheDie.push(new Die(this.size));
+    }
   }
 
   // **************
   // rollDice() rolls all the die in the dice holder.  It iterates through the
-  // count and rolls the die.  It then adds that die roll to the total and then
+  // array and rolls the die.  It then adds that die roll to the total and then
   // stores that value in the rolls array.
   // **************
   rollDice() {
     this.total = 0;
     if(this.count > 0 && this.size > 0) {
-      for(let i=0; i< this.count; i++) {
-        const d = new Die(this.size);
-        const roll = d.roll();
-        this.rolls.push(roll);
-        this.total += roll;
-      }
+      this.allTheDie.forEach((die) => {
+        die.roll();
+        this.rolls.push(die.getFace());
+        this.total += die.getFace();
+      });
     }
   }
 
