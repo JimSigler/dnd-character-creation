@@ -10,4 +10,13 @@ npm install
  gulp start
  ```
 
+  To run tests:
+  ```
+  gulp test
+  ```
+
+  To run eslint:
+  ```
+  gulp lint
+  ```
   
