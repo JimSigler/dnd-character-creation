@@ -61,6 +61,9 @@ class DiceRoller{
     }
   }
 
+  // **************
+  // getInfo() returns a JSON object with all the information of the dice roller.
+  // **************
   getInfo() {
     return {
       "diceSize": this.size,
