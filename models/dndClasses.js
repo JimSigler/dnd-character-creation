@@ -16,10 +16,10 @@ class DnDClasses{
       "Cleric",
       "Bard"
     ];
-    
-    this.test = {
+
+    this.bestStats = {
       'Fighter':    'STR',
-    'Rogue':        'DEX',
+      'Rogue':      'DEX',
       'Paladin':    'CON',
       'Mage':       'INT',
       'Cleric':     'WIS',
@@ -38,7 +38,7 @@ class DnDClasses{
     // **********
     // This returns the name of a stat for a given class.
     // **********
-    return this.test[className];
+    return this.bestStats[className];
   }
 
   getClass(stat){

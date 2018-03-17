@@ -40,7 +40,6 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
 // ******************
 app.get('/character', function(req, res){
   var output = character.getCharacter();
-  console.log(output);
   res.send(`${JSON.stringify(output.character)}`);
 })
 
