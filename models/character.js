@@ -36,20 +36,11 @@ const character = ( function(){
     return classes[largest];
   }
 
-  function formatOutput(rolls, classChoice) {
-    let output = "<table>";
-    output += ` <tr> <td> STR: </td> <td> ${rolls[0]} </td> </tr> `;
-    output += ` <tr> <td> DEX: </td> <td> ${rolls[1]} </td> </tr> `;
-    output += ` <tr> <td> CON: </td> <td> ${rolls[2]} </td> </tr> `;
-    output += ` <tr> <td> INT: </td> <td> ${rolls[3]} </td> </tr> `;
-    output += ` <tr> <td> WIS: </td> <td> ${rolls[4]} </td> </tr> `;
-    output += ` <tr> <td> CHA: </td> <td> ${rolls[5]} </td> </tr> `;
-    output += ` <tr> <td> RAN: </td> <td> ${rolls[6]} </td> </tr> `;
-    output += " </table> ";
-    output += `<h2>Recommended Class: ${classChoice}</h2>`;
-    return output;
-  }
-
+  // *********************
+  // function creates stats and gets the recommended character class
+  // based on those stats.
+  // Returns a JSON object with the stats and recommended class
+  // *********************\
   function getCharacter() {
     const stats = rollAllStats(7);
     const classChoice = getCharacterClass(stats);
@@ -66,7 +57,6 @@ const character = ( function(){
         "class": classChoice
       }
     }
-    // const output = formatOutput(stats, classChoice);
     return output;
   }
 
