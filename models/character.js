@@ -25,7 +25,7 @@ const character = ( function(){
   function rollAllStats(numberOfStats) {
     const stats = [];
     for(let i=0; i<numberOfStats; i++){
-      stats.push(rollForStat(6));
+      stats.push(rollForStat(7));
     }
     return stats;
   }
@@ -44,13 +44,14 @@ const character = ( function(){
     output += ` <tr> <td> INT: </td> <td> ${rolls[3]} </td> </tr> `;
     output += ` <tr> <td> WIS: </td> <td> ${rolls[4]} </td> </tr> `;
     output += ` <tr> <td> CHA: </td> <td> ${rolls[5]} </td> </tr> `;
+    output += ` <tr> <td> RAN: </td> <td> ${rolls[6]} </td> </tr> `;
     output += " </table> ";
     output += `<h2>Recommended Class: ${classChoice}</h2>`;
     return output;
   }
 
   function getCharacter() {
-    const stats = rollAllStats(6);
+    const stats = rollAllStats(7);
     const classChoice = getCharacterClass(stats);
     const output = formatOutput(stats, classChoice);
     return output;
