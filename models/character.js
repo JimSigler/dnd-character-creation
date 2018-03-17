@@ -53,7 +53,20 @@ const character = ( function(){
   function getCharacter() {
     const stats = rollAllStats(7);
     const classChoice = getCharacterClass(stats);
-    const output = formatOutput(stats, classChoice);
+    const output = {
+      "character": {
+        "stats": {
+          "str": stats[0],
+          "dex": stats[1],
+          "con": stats[2],
+          "int": stats[3],
+          "wis": stats[4],
+          "cha": stats[5]
+        },
+        "class": classChoice
+      }
+    }
+    // const output = formatOutput(stats, classChoice);
     return output;
   }
 

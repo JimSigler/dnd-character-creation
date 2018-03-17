@@ -34,9 +34,14 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
   }
 })
 
+// ******************
+// /character creates a random character and returns a JSON object
+// with the character stats and recommended character class
+// ******************
 app.get('/character', function(req, res){
   var output = character.getCharacter();
-  res.send(`${output}`);
+  console.log(output);
+  res.send(`${JSON.stringify(output.character)}`);
 })
 
 app.listen(3004, function(){
