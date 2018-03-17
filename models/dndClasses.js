@@ -9,12 +9,12 @@ class DnDClasses{
 
   constructor(){
     this.theClassList = [
-      {"name": "Fighter"},
-      {"name": "Rogue"},
-      {"name": "Paladin"},
-      {"name": "Mage"},
-      {"name": "Cleric"},
-      {"name": "Bard"}
+      {"name": "Fighter", "stat": "STR"},
+      {"name": "Rogue", "stat": "DEX"},
+      {"name": "Paladin", "stat": "CON"},
+      {"name": "Mage", "stat": "INT"},
+      {"name": "Cleric", "stat": "WIS"},
+      {"name": "Bard", "stat": "CHA"}
     ];
 
     this.bestStats = {

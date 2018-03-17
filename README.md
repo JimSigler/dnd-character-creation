@@ -13,7 +13,7 @@ gulp start
 
 **To run tests:**
 ```
-gulp test
+npm test
 ```
 
 **To run eslint:**

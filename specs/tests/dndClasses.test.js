@@ -11,8 +11,14 @@ test('should give the proper class based on stat', () => {
   expect(anotherClass.getClass(3).name).toBe('Mage');
 });
 
-test('List of classes should contain rogue', () => {
-  expect(anotherClass.classList()).toContain('Rogue');
+test('List of classes should contain the name rogue', () => {
+  let theName;
+  anotherClass.classList().forEach( (aClass) => {
+    if(aClass.name === "Rogue"){
+      theName = aClass.name;
+    }
+  });
+  expect(theName).toBe("Rogue");
 });
 
 test('List of classes should contain elements', () => {

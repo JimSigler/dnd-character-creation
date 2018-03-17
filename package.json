@@ -17,7 +17,6 @@
     "gulp-eslint": "^4.0.0",
     "gulp-jest": "^2.0.0",
     "gulp-run": "^1.7.1",
-    "jest-cli": "^21.2.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
