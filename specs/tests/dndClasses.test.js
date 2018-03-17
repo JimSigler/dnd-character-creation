@@ -8,7 +8,7 @@ test(`should have match ${theClass}`, () => {
 });
 
 test('should give the proper class based on stat', () => {
-  expect(anotherClass.getClass(3)).toBe('Mage');
+  expect(anotherClass.getClass(3).name).toBe('Mage');
 });
 
 test('List of classes should contain rogue', () => {
