@@ -61,6 +61,15 @@ class DiceRoller{
     }
   }
 
+  getInfo() {
+    return {
+      "diceSize": this.size,
+      "diceCount": this.count,
+      "rolls": this.rolls,
+      "total": this.total
+    }
+  }
+
   // *************
   // getTotal() returns the total of the die rolls after all dice have been rolled.
   // *************

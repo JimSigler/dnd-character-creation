@@ -6,7 +6,7 @@ const app=express();
 var character = require('./models/character');
 
 app.get('/', function(req, res){
-  res.send("hello world");
+  res.send("Welcome!");
 })
 
 app.get('/dice', function(req, res){
@@ -16,7 +16,7 @@ app.get('/dice', function(req, res){
 app.get('/dice/:diceCount', function(req, res){
   var dice = new diceRoller(req.params.diceCount, 20);
   dice.rollDice();
-  res.send(`You asked for ${req.params.diceCount} dice:  \n ${dice.getTotal()}`);
+  res.send(JSON.stringify(dice.getInfo()));
 })
 
 app.get('/dice/:diceCount/sides', function(req,res){
@@ -30,7 +30,7 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
   else{
     var dice = new diceRoller(req.params.diceCount, req.params.sideCount);
     dice.rollDice();
-    res.send(`You rolled: ${dice.getTotal()}`);
+    res.send(JSON.stringify(dice.getInfo()));
   }
 })
 
