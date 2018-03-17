@@ -6,31 +6,31 @@ const app=express();
 var character = require('./models/character');
 
 app.get('/', function(req, res){
-  res.send("Welcome!");
+  res.status(404).send("Sorry, nothing to see here.");
 })
 
 app.get('/dice', function(req, res){
-  res.send("what?  How many dice?");
+  res.status(500).send({error: "Please specify the number of dice."});
 })
 
 app.get('/dice/:diceCount', function(req, res){
   var dice = new diceRoller(req.params.diceCount, 20);
   dice.rollDice();
-  res.send(JSON.stringify(dice.getInfo()));
+  res.json(dice.getInfo());
 })
 
 app.get('/dice/:diceCount/sides', function(req,res){
-    res.send("ok, so what size dice did you want to roll?");
+    res.status(500).send({error: "Please specify the size of the dice to roll."});
 })
 
 app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
   if(req.params.diceCount < 0 || req.params.sideCount < 0){
-    res.send('The dice count and size of the dice must be positive integers.')
+    res.status(500).send({error: 'The dice count and size of the dice must be positive integers.'})
   }
   else{
     var dice = new diceRoller(req.params.diceCount, req.params.sideCount);
     dice.rollDice();
-    res.send(JSON.stringify(dice.getInfo()));
+    res.json(dice.getInfo());
   }
 })
 
@@ -39,8 +39,7 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
 // with the character stats and recommended character class
 // ******************
 app.get('/character', function(req, res){
-  var output = character.getCharacter();
-  res.send(`${JSON.stringify(output.character)}`);
+  res.json(character.getCharacter());
 })
 
 app.listen(3004, function(){
