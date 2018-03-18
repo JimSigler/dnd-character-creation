@@ -1,9 +1,9 @@
 const _=require('underscore');
-const diceRoller = require('./models/diceRoller').DiceRoller;
+const diceRoller = require('./src/models/diceRoller').DiceRoller;
 const express=require('express');
 const app=express();
 
-var character = require('./models/character');
+var character = require('./src/models/character');
 
 app.get('/', function(req, res){
   res.status(404).send("Sorry, nothing to see here.");
