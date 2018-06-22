@@ -1,4 +1,4 @@
-const dndClasses = require('../../models/dndClasses').DnDClasses;
+const dndClasses = require('../../src/models/dndClasses').DnDClasses;
 
 let theClass = "Fighter";
 const anotherClass = new dndClasses();

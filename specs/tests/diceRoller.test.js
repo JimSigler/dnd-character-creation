@@ -1,4 +1,4 @@
-const Die = require('../../models/diceRoller').DiceRoller;
+const Die = require('../../src/models/diceRoller').DiceRoller;
 
 let dieRoll = 0;
 let numberOfRolls = 0;
@@ -22,7 +22,7 @@ beforeAll(() => {
 });
 
 test(`should have a value between ${dieCount} and ${dieSize}`, () => {
-  expect( (dieRoll > (dieCount - 1)) && (dieRoll < ((dieSize * dieCount) + 1))).toBe(true);
+  expect((dieRoll > (dieCount - 1)) && (dieRoll < ((dieSize * dieCount) + 1))).toBe(true);
 });
 
 test(`should have ${dieCount} number of rolls`, () => {
@@ -39,7 +39,7 @@ test(`should have size ${dieSize}`, () => {
 
 test('no die roll should be less than one', () => {
   theRolls.forEach((dieFace) => {
-      expect(dieFace > 0).toBe(true);
+    expect(dieFace > 0).toBe(true);
   });
 });
 

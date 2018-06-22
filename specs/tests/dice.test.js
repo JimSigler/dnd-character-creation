@@ -1,14 +1,14 @@
-const Die = require('../../models/aDie').aDie;
+const Die = require('../../src/models/adie').aDie;
 
 let dieRoll = 0;
 const dieSize = 6;
 
 beforeAll(() => {
-  let theDie = new Die(dieSize);
+  const theDie = new Die(dieSize);
   dieRoll = theDie.roll();
 });
 
-test(`should have a value greater than 1`, () => {
+test('should have a value greater than 1', () => {
   expect(dieRoll > 0).toBe(true);
 });
 
@@ -17,7 +17,7 @@ test(`should have a value less than ${dieSize}`, () => {
 });
 
 test('should default to a 6 sided die if input is non-numeric', () => {
-  theDie = new Die("hello");
+  theDie = new Die('hello');
   expect(theDie.getSize() == 6).toBe(true);
 });
 
