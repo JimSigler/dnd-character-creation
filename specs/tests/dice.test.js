@@ -1,10 +1,10 @@
 const Die = require('../../src/models/adie').aDie;
 
 let dieRoll = 0;
-const dieSize = 6;
+let dieSize = 6;
 
 beforeAll(() => {
-  const theDie = new Die(dieSize);
+  let theDie = new Die(dieSize);
   dieRoll = theDie.roll();
 });
 

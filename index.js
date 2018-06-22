@@ -1,9 +1,7 @@
-const _=require('underscore');
+const _ = require('underscore');
 const diceRoller = require('./src/models/diceRoller').DiceRoller;
-const express=require('express');
-const app=express();
-
-var character = require('./src/models/character');
+const express = require('express');
+const app = express();
 
 app.get('/', function(req, res){
   res.status(404).send("Sorry, nothing to see here.");
@@ -14,7 +12,7 @@ app.get('/dice', function(req, res){
 })
 
 app.get('/dice/:diceCount', function(req, res){
-  var dice = new diceRoller(req.params.diceCount, 20);
+  let dice = new diceRoller(req.params.diceCount, 20);
   dice.rollDice();
   res.json(dice.getInfo());
 })
@@ -28,7 +26,7 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
     res.status(500).send({error: 'The dice count and size of the dice must be positive integers.'})
   }
   else{
-    var dice = new diceRoller(req.params.diceCount, req.params.sideCount);
+    let dice = new diceRoller(req.params.diceCount, req.params.sideCount);
     dice.rollDice();
     res.json(dice.getInfo());
   }
@@ -39,6 +37,7 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
 // with the character stats and recommended character class
 // ******************
 app.get('/character', function(req, res){
+  let character = new require('./src/models/character')();
   res.json(character.getCharacter());
 })
 
