@@ -14,11 +14,11 @@ gulp start
 ```
 
 **To run without gulp:**
-...
+```
 npm install
 
 node index.js
-...
+```
 
 **To run tests:**
 ```
