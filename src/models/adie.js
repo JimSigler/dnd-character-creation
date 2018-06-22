@@ -43,11 +43,11 @@ class aDie {
   // The die does not remember it's past roll(s).
   // **************
   roll() {
-    if(this.size > 0){
+    // if(this.size > 0){
       this.face = _.random(1, this.size);
       return this.face;
-    }
-    return 0;
+    // }
+    // return 0;
   }
 
   // ***************

@@ -25,6 +25,11 @@ node index.js
 npm test
 ```
 
+**To get code coverage statistics:**
+```
+jest --coverage
+```
+
 **To run eslint:**
 ```
 gulp lint

@@ -48,3 +48,15 @@ test(`no die roll should be greater than ${dieSize} + 1`, () => {
     expect(dieFace < (dieSize + 1)).toBe(true);
   });
 });
+
+test('if the die count is set to zero, it should be one', () => {
+  theDie = new Die(0, dieSize);
+  let dieInfo = theDie.getInfo();  
+  expect(dieInfo.diceCount == 1).toBe(true);
+});
+
+test('if the die size is set to zero or less, it should default to six', () => {
+  theDie = new Die(dieCount, -1);
+  let dieInfo = theDie.getInfo();
+  expect(dieInfo.diceSize == 6).toBe(true);
+})

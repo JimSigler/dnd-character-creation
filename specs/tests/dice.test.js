@@ -16,6 +16,11 @@ test(`should have a value less than ${dieSize}`, () => {
   expect(dieRoll < (dieSize + 1)).toBe(true);
 });
 
+test('should allow positive integer die size', () => {
+  theDie = new Die(20);
+  expect(theDie.getSize() == 20).toBe(true);
+});
+
 test('should default to a 6 sided die if input is non-numeric', () => {
   theDie = new Die('hello');
   expect(theDie.getSize() == 6).toBe(true);
