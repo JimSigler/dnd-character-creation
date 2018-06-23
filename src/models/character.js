@@ -1,8 +1,10 @@
 const DiceRoller = require('./diceRoller').DiceRoller;
+const _ = require('underscore');
 
 function Character(){
     return {
-        getCharacter
+        getCharacter,
+        getClasses
     };
 }
 
@@ -57,6 +59,11 @@ function getCharacterClass(rolls) {
     return classes[largest];
 }
 
+function getRandomClass() { 
+    let number = _.random(1, classes.length);
+    return classes[number];
+}
+
 // *********************
 // function creates stats and gets the recommended character class
 // based on those stats.
@@ -64,7 +71,7 @@ function getCharacterClass(rolls) {
 // *********************
 function getCharacter() {
     let stats = rollAllStats(numberOfStatsToRoll);
-    let classChoice = getCharacterClass(stats);
+    let classChoice = getRandomClass(stats);
     let output = {
         "character": {
         "stats": {
@@ -79,4 +86,11 @@ function getCharacter() {
         }
     }
     return output;
+}
+
+// *********************
+// function returns all available classes
+// *********************
+function getClasses(){
+    return classes;
 }
