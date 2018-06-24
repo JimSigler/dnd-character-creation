@@ -18,8 +18,10 @@
     "gulp-jest": "^2.0.0",
     "gulp-run": "^1.7.1",
     "jest-cli": "^23.1.0",
+    "mysql2": "^1.5.3",
     "nodemon": "^1.17.5",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "yml": "^1.0.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",
