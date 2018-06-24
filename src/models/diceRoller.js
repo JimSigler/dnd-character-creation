@@ -1,4 +1,4 @@
-const Die = require('./aDie').aDie;
+const Die = require('../models/adie').aDie;
 
 // **************
 // DiceRoller creates a container in which one or more die can be rolled.
