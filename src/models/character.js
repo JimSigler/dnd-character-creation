@@ -60,7 +60,7 @@ function getCharacterClass(rolls) {
 }
 
 function getRandomClass() { 
-    let number = _.random(1, classes.length);
+    let number = _.random(0, classes.length-1);
     return classes[number];
 }
 
