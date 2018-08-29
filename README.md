@@ -20,6 +20,11 @@ npm install
 node index.js
 ```
 
+**To run in dev mode:**
+```
+nodemon index.js
+```
+
 **To run tests:**
 ```
 npm test
