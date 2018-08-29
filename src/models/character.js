@@ -2,8 +2,10 @@ const DiceRoller = require('./diceRoller').DiceRoller;
 const _ = require('underscore');
 
 function Character(){
+    this.stats = rollAllStats(numberOfStatsToRoll);    
+    this.classChoice = getRandomClass();
     return {
-        getCharacter,
+        getCharacterJSON,
         getClasses
     };
 }
@@ -42,36 +44,35 @@ function rollForStat(diceSize) {
 // returns an array of those stats.
 // *********************
 function rollAllStats(numberOfStats) {
-    let stats = [];
+    let theStats = [];
     for(let i=0; i<numberOfStats; i++){
-        stats.push(rollForStat(statDiceSize));
+        theStats.push(rollForStat(statDiceSize));
     }
-    return stats;
+    return theStats
 }
 // *********************
 // function returns a character class depending upon the largest stat that
 // was rolled.  While this is not the only way to determine what type of
 // character should be created, it is the best given the randomness requested.
 // *********************
-function getCharacterClass(rolls) {
-    let largest=0;
-    largest = rolls.indexOf(Math.max.apply(null, rolls));
-    return classes[largest];
-}
+// function getCharacterClass(rolls) {
+//     let largest=0;
+//     largest = rolls.indexOf(Math.max.apply(null, rolls));
+//     return classes[largest];
+// }
 
+// *********************
+// Returns a random class
+// *********************
 function getRandomClass() { 
     let number = _.random(0, classes.length-1);
     return classes[number];
 }
 
 // *********************
-// function creates stats and gets the recommended character class
-// based on those stats.
 // Returns a JSON object with the stats and recommended class
 // *********************
-function getCharacter() {
-    let stats = rollAllStats(numberOfStatsToRoll);
-    let classChoice = getRandomClass(stats);
+function getCharacterJSON() {
     let output = {
         "character": {
         "stats": {

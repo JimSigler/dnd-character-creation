@@ -38,7 +38,7 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
 // ******************
 app.get('/character', function(req, res){
   let character = new require('./src/models/character')();
-  res.json(character.getCharacter());
+  res.json(character.getCharacterJSON());
 })
 
 app.listen(3004, function(){
