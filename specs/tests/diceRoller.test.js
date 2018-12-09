@@ -60,4 +60,29 @@ test('if the die size is set to zero or less, it should default to six', () => {
   theDie = new Die();
   let dieInfo = theDie.withCount(dieCount).ofSize(-1).values();
   expect(dieInfo.diceSize == 6).toBe(true);
+});
+
+test('dice is rolled without setting count or size, it should default to size of 6 and count of 1', () => {
+  let aRoller = new Die();
+  let dieInfo = aRoller.rollDice().values();
+  expect(dieInfo.diceCount === 1).toBe(true);
+  expect(dieInfo.diceSize === 6).toBe(true);
+});
+
+test('the dice info should be correct after die roll', () => {
+  let aRoller = new Die();
+  let dieInfo = aRoller.withCount(1).ofSize(4).rollDice().values();
+  expect(dieInfo.total > 0 && dieInfo.total < 5).toBe(true);
+});
+
+test('the count should be correct', () => {
+  let roller = new Die();
+  let count = roller.withCount(dieCount).ofSize(6).getCount();
+  expect(count === dieCount);
+});
+
+test('the size should be correct', () => {
+  let die = new Die();
+  let size = die.withCount(dieCount).ofSize(dieSize).getSize();
+  expect(size === dieSize);
 })

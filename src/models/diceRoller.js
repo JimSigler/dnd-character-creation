@@ -36,13 +36,14 @@ DiceRoller.prototype.rollDice = function() {
   for(let i=0; i< this.count; i++){
       this.roller.push(new ADie().ofSize(this.size));
   }
-  if(this.count > 0 && this.size > 0) {
-      this.roller.forEach((die) => {
-        die.roll();
-        this.rolls.push(die.getValue());
-        this.total += die.getValue();
-      });
-  }
+  if(this.count < 1) { this.count = 1; }
+  if(this.size < 1) { this.size = 6; }
+  this.roller.forEach((die) => {
+    die.roll();
+    this.rolls.push(die.getValue());
+    this.total += die.getValue();
+  });
+
   return this;
 };
 
@@ -50,11 +51,11 @@ DiceRoller.prototype.getRolls = function() {
     return this.rolls;
 };
 
-DiceRoller.prototype.count = function() {
+DiceRoller.prototype.getCount = function() {
   return this.count;
 };
 
-DiceRoller.prototype.size = function() {
+DiceRoller.prototype.getSize = function() {
   return this.size;
 };
 
