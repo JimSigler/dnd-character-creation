@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const diceRoller = require('./src/models/diceRoller').DiceRoller;
+const diceRoller = require('./src/models/diceRoller');
 const express = require('express');
 const app = express();
 
@@ -12,9 +12,9 @@ app.get('/dice', function(req, res){
 })
 
 app.get('/dice/:diceCount', function(req, res){
-  let dice = new diceRoller(req.params.diceCount, 20);
-  dice.rollDice();
-  res.json(dice.getInfo());
+  let dice = new diceRoller();
+  dice.withCount(req.params.diceCount).ofSize(20).rollDice();
+  res.json(dice.values());
 })
 
 app.get('/dice/:diceCount/sides', function(req,res){
@@ -26,9 +26,9 @@ app.get('/dice/:diceCount/sides/:sideCount', function(req, res){
     res.status(500).send({error: 'The dice count and size of the dice must be positive integers.'})
   }
   else{
-    let dice = new diceRoller(req.params.diceCount, req.params.sideCount);
-    dice.rollDice();
-    res.json(dice.getInfo());
+    let dice = new diceRoller();
+    dice.withCount(req.params.diceCount).ofSize(req.params.sideCount).rollDice();
+    res.json(dice.values());
   }
 })
 

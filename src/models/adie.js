@@ -3,7 +3,7 @@ const _ = require('underscore');
 ADie.prototype.d6 = function() {
     this.size = 6;
     return this;
-}
+};
 
 ADie.prototype.ofSize = function(value) {
   if(isNaN(value) || value < 1) {
@@ -11,17 +11,17 @@ ADie.prototype.ofSize = function(value) {
   }
   this.size = value;
   return this;
-}
+};
 
 ADie.prototype.d20 = function() {
     this.size = 20;
     return this;
-}
+};
 
 ADie.prototype.d4 = function() {
     this.size = 4;
     return this;
-}
+};
 
 ADie.prototype.d8 = function() {
     this.size = 8;
