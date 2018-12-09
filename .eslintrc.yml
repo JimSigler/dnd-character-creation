@@ -88,7 +88,7 @@ rules:
   max-lines-per-function: error
   max-nested-callbacks: error
   max-params: error
-  max-statements: error
+  max-statements: 'off'
   max-statements-per-line: 'off'
   multiline-comment-style:
     - error
@@ -98,7 +98,7 @@ rules:
   new-parens: error
   newline-after-var: 'off'
   newline-before-return: 'off'
-  newline-per-chained-call: error
+  newline-per-chained-call: 'off'
   no-alert: error
   no-array-constructor: error
   no-async-promise-executor: error

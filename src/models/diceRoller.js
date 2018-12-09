@@ -39,11 +39,9 @@ DiceRoller.prototype.rollDice = function() {
   if(this.count < 1) { this.count = 1; }
   if(this.size < 1) { this.size = 6; }
   this.roller.forEach((die) => {
-    die.roll();
-    this.rolls.push(die.getValue());
+    this.rolls.push(die.roll().getValue());
     this.total += die.getValue();
   });
-
   return this;
 };
 
