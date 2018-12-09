@@ -12,13 +12,10 @@ test('should give the proper class based on stat', () => {
 });
 
 test('List of classes should contain the name rogue', () => {
-  let theName;
-  anotherClass.classList().forEach( (aClass) => {
-    if(aClass.name === "Rogue"){
-      theName = aClass.name;
-    }
+  let theName = anotherClass.classList().filter(aClass => {
+    return aClass.name === 'Rogue';
   });
-  expect(theName).toBe("Rogue");
+  expect(theName[0].name).toBe("Rogue");
 });
 
 test('List of classes should contain elements', () => {

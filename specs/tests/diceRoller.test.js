@@ -52,7 +52,6 @@ test(`no die roll should be greater than ${dieSize} + 1`, () => {
 test('if the die count is set to zero, it should be one', () => {
   theDie = new Die();
   let dieInfo = theDie.withCount(0).ofSize(dieSize).values();  
-  console.log(dieInfo.diceCount);
   expect(dieInfo.diceCount === 1).toBe(true);
 });
 
