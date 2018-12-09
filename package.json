@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "child-process": "^1.0.2",
-    "child_process": "^1.0.2",
     "eslint": "^4.19.1",
     "express": "^4.14.1",
     "gulp": "^3.9.1",
@@ -18,7 +17,6 @@
     "gulp-jest": "^2.0.0",
     "gulp-run": "^1.7.1",
     "jest-cli": "^23.1.0",
-    "mysql2": "^1.5.3",
     "nodemon": "^1.17.5",
     "underscore": "^1.8.3",
     "yml": "^1.0.0"

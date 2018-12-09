@@ -1,61 +1,67 @@
 const _ = require('underscore');
 
-// *******************
-// creates a single die.  If the given die size (number of sides) is greater
-// than zero, the die is created and can be used.  If no size is given or if
-// the size is zero, the die is returned as a six-sided die.
-// *******************
-
-class aDie {
-  // ***************
-  // the die is created by providing a size (number of sides) which is greater
-  // than zero.  If no size is given or if the size is non-numeric or less than
-  // zero, then a six-sided die is returned.  Otherwise, a die with the appropriate
-  // size is returned.
-  // Usage:
-  //
-  //   let dice = new aDie(20);
-  //
-  // This creates a 20-sided die which can now be rolled to get a value.
-  // ***************
-  constructor(size) {
-    if(size > 0){
-      this.size = size;
-    }
-    else{
-      this.size=6;
-    }
-    this.face = 0;
-  }
-
-  // **************
-  // getSize() can be used to return the number of sides the die has.  The size
-  // cannot be changed once the die is created.  If you wish to change the number
-  // of sides, a new die must be created.
-  // **************
-  getSize(){
-    return this.size;
-  }
-
-  // **************
-  // roll() returns a random number between 1 and the size of the die.  A die can
-  // be rolled as many times as needed but will always return a new random number.
-  // The die does not remember it's past roll(s).
-  // **************
-  roll() {
-    // if(this.size > 0){
-      this.face = _.random(1, this.size);
-      return this.face;
-    // }
-    // return 0;
-  }
-
-  // ***************
-  // getFace() returns the last number rolled - the showing face of the die.
-  // ***************
-  getFace(){
-    return this.face;
-  }
+ADie.prototype.d6 = function() {
+    this.size = 6;
+    return this;
 }
 
-exports.aDie = aDie;
+ADie.prototype.ofSize = function(value) {
+  if(isNaN(value) || value < 1) {
+    value = 6;
+  }
+  this.size = value;
+  return this;
+}
+
+ADie.prototype.d20 = function() {
+    this.size = 20;
+    return this;
+}
+
+ADie.prototype.d4 = function() {
+    this.size = 4;
+    return this;
+}
+
+ADie.prototype.d8 = function() {
+    this.size = 8;
+    return this;
+}
+
+ADie.prototype.d10 = function() {
+    this.size = 10;
+    return this;
+}
+
+ADie.prototype.d12 = function() {
+    this.size = 12;
+    return this;
+}
+
+ADie.prototype.percentile = function() {
+    this.size = 100;
+    return this;
+}
+
+ADie.prototype.roll = function() {
+    if(this.size === 0 || this.size === undefined) {
+        this.size = 6;
+    }
+    this.face = _.random(1, this.size);
+    return this;
+}
+
+ADie.prototype.getValue = function () {
+    return this.face;
+}
+
+ADie.prototype.getSize = function() {
+  return this.size;
+}
+
+function ADie() {
+    this.face = 0;
+    this.size = 0;
+}
+
+module.exports = ADie;

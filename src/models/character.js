@@ -1,4 +1,4 @@
-const DiceRoller = require('./diceRoller').DiceRoller;
+const DiceRoller = require('./diceRoller');
 const _ = require('underscore');
 
 function Character(){
@@ -30,9 +30,9 @@ function sortLtoS(arrayToSort) {
 function rollForStat(diceSize) {
     let maxDice = 4;
     let rolls = [];
-    let roller = new DiceRoller(1, diceSize);
+    let roller = new DiceRoller();
     for(let i=0; i< maxDice; i++){
-        roller.rollDice();
+        roller.withCount(1).ofSize(diceSize).rollDice();
         rolls.push(roller.getTotal());
     }
     rolls = sortLtoS(rolls);

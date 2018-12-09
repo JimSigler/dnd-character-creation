@@ -1,4 +1,4 @@
-const Die = require('../../src/models/diceRoller').DiceRoller;
+const Die = require('../../src/models/diceRoller');
 
 let dieRoll = 0;
 let numberOfRolls = 0;
@@ -12,8 +12,8 @@ const dieCount = 50;
 
 beforeAll(() => {
   // setup the diceROller and roll the dice
-  const theDie = new Die(dieCount, dieSize);
-  theDie.rollDice();
+  const theDie = new Die();
+  theDie.withCount(dieCount).ofSize(dieSize).rollDice();
   dieRoll = theDie.getTotal();
   numberOfRolls = theDie.getRolls().length;
   count = theDie.count;
@@ -50,13 +50,14 @@ test(`no die roll should be greater than ${dieSize} + 1`, () => {
 });
 
 test('if the die count is set to zero, it should be one', () => {
-  theDie = new Die(0, dieSize);
-  let dieInfo = theDie.getInfo();  
-  expect(dieInfo.diceCount == 1).toBe(true);
+  theDie = new Die();
+  let dieInfo = theDie.withCount(0).ofSize(dieSize).values();  
+  console.log(dieInfo.diceCount);
+  expect(dieInfo.diceCount === 1).toBe(true);
 });
 
 test('if the die size is set to zero or less, it should default to six', () => {
-  theDie = new Die(dieCount, -1);
-  let dieInfo = theDie.getInfo();
+  theDie = new Die();
+  let dieInfo = theDie.withCount(dieCount).ofSize(-1).values();
   expect(dieInfo.diceSize == 6).toBe(true);
 })
