@@ -18,7 +18,7 @@
     "gulp-run": "^1.7.1",
     "jest-cli": "^23.1.0",
     "nodemon": "^1.17.5",
-    "underscore": "^1.8.3",
+    "underscore": "^1.12.1",
     "yml": "^1.0.0"
   },
   "devDependencies": {
