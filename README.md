@@ -39,3 +39,15 @@ jest --coverage
 ```
 gulp lint
 ```
+
+**To create the docker iimage:**
+```
+docker build . -t dnd-character-creation
+```
+
+**To run docker image after build**
+```
+docker run -p <external port>:3004 -d dnd-character-creation
+```
+
+You should then be able to access the API calls from localhost:<external port>/character/new
