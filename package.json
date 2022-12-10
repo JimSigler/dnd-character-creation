@@ -11,7 +11,7 @@
   "dependencies": {
     "child-process": "^1.0.2",
     "eslint": "^7.32.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "gulp": "^4.0.2",
     "gulp-eslint": "^6.0.0",
     "gulp-jest": "^4.0.4",
